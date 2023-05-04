@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoomsController;
+use App\Http\Controllers\OffersController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('about-us', [AboutUsController::class, 'showAbout']);
+
+Route::get('rooms', [RoomsController::class, 'index']);
+
+Route::get('rooms/{id}', [RoomsController::class, 'showDetails']);
+
+Route::get("offers", [OffersController::class, "showOffers"]);
+
+Route::get('contact',[ContactController::class, 'showContact']);
